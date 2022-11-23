@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	reverse(t_list **stack)
+static void	reverse(t_list **stack)
 {
 	t_list	*tmp;
 

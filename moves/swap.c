@@ -6,13 +6,13 @@
 /*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 10:48:34 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/11/21 18:33:27 by nhorta-g         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:06:40 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap(t_list **stack)
+static void	swap(t_list **stack)
 {
 	t_list	*tmp;
 

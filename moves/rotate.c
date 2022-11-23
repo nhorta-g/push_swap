@@ -6,13 +6,13 @@
 /*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 15:05:07 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/11/21 19:19:01 by nhorta-g         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:07:05 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rotate(t_list **stack)
+static void	rotate(t_list **stack)
 {
 	if (stack && *stack && ft_lstsize(stack) > 1)
 	{

@@ -22,19 +22,31 @@ typedef struct s_stack
 }	t_stack;
 
 /*List creation and free*/
-void	del_one(t_list **lst);
-void	del_last(t_list **lst);
+void	del_first_node(t_list **lst);
+void	del_last_node(t_list **lst);
+
+/*Checkers*/
+int		check_order(t_list **stack);
+
+/*Sorters*/
+void    sort2(t_list **stack);
+void    sort3(t_list **stack);
+/*
+void    sort4(t_list **stack);
+void    sort5(t_list **stack);
+*/
 
 /*Operations on stakcs*/
-void	swap_a(t_list **a);
-void	swap_b(t_list **b);
-void	swap_both(t_list **a, t_list **b);
-void	push_a(t_list **a, t_list **b);
-void	push_b(t_list **a, t_list **b);
-void	rotate_a(t_list **a);
-void	rotate_b(t_list **b);
-void	reverse_a(t_list **a);
-void	reverse_b(t_list **b);
-void	rotate_both(t_list **a, t_list **b);
+void	sb(t_list **a);
+void	sa(t_list **b);
+void	ss(t_list **a, t_list **b);
+void	pa(t_list **a, t_list **b);
+void	pb(t_list **a, t_list **b);
+void	ra(t_list **a);
+void	rb(t_list **b);
+void	rr(t_list **a, t_list **b);
+void	rra(t_list **a);
+void	rrb(t_list **b);
+void	rrr(t_list **a, t_list **b);
 
 #endif

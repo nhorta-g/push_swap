@@ -3,52 +3,51 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:40:52 by nhorta-g          #+#    #+#              #
-#    Updated: 2022/11/22 17:53:20 by nhorta-g         ###   ########.fr        #
+#    Updated: 2022/12/09 20:35:32 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC			= $(foreach dir, $(SRC_DIR), $(wildcard $(dir)/*.c))
+SRCS	= push_swap.c \
+		src/list_utils.c \
+		src/push.c \
+		src/reverse_rotate.c \
+		src/rotate.c \
+		src/small_sort.c \
+		src/swap.c \
 
-SRC_DIR		= src
+OBJS	= $(SRCS:.c=.o)
 
-OBJS		= $(subst $(SRC_DIR), $(OBJS_DIR), $(SRC:.c=.o))
+NAME	= push_swap
 
-OBJS_DIR	= objs
+CC		= gcc
 
-LIBFT		= libft/libft.a
+CFLAGS	= -Wall -Wextra -Werror -g #-fsanitize=address
 
-NAME		= push_swap
+RM		= rm -rf
 
-CC			= gcc -g
+LIBFT = libft/libft.a
 
-CFLAGS		= -Wall -Wextra -Werror
+all: $(NAME)
 
-RM			= rm -rf
-
-all:			$(NAME)
-
-$(OBJS_DIR)/%.o :	$(SRC_DIR)/%.c
-					@mkdir -p $(OBJS_DIR)
-					@$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME):			$(LIBFT) $(OBJS)
-					@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+$(NAME):	$(PRINTF) $(LIBFT) $(OBJS)
+		@$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -o $(NAME)
+		@make clean
 
 $(LIBFT):
-					@make -C libft
+		@make bonus -C libft
 
 clean:
-					$(RM) $(OBJS_DIR)
-					make clean -C libft
+	$(RM) $(OBJS)
+	@make clean -C libft
 
-fclean:				clean
-					$(RM) $(NAME)
-					make fclean -C libft
+fclean: clean
+	$(RM) $(NAME) $(OBJS)
+	@make fclean -C libft
 
-re:					fclean all
+re: fclean all
 
+.PHONY: all clean fclean re libft
 .SILENT: all clean fclean re
-.PHONY: all clean fclean re

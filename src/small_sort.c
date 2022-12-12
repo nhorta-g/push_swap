@@ -12,45 +12,45 @@
 
 #include "../includes/push_swap.h"
 
-void    sort2(t_list **stack)
+void	sort2(t_list **stk)
 {
-	if ((*stack)->data > (*stack)->next->data)
-		sa(stack);
+	if ((*stk)->value > (*stk)->next->value)
+		sa(stk);
 }
 
-void    sort3(t_list **stack)
+void	sort3(t_list **stk)
 {
-    if (((*stack)->data < (*stack)->next->data) && ((*stack)->next->data > \
-    (*stack)->next->next->data) && ((*stack)->data > (*stack)->next->next->data))
-        ra(stack);
-    if (((*stack)->data < (*stack)->next->data) && ((*stack)->next->data > \
-    (*stack)->next->next->data) && ((*stack)->data < (*stack)->next->next->data))
-    {
-        ra(stack);
-        sa(a);
-    }
-    if (((*stack)->data > (*stack)->next->data) && ((*stack)->next->data < \
-    (*stack)->next->next->data) && ((*stack)->data < (*stack)->next->next->data))
-        sa(stack);
-    if (((*stack)->data > (*stack)->next->data) && ((*stack)->next->data < \
-    (*stack)->next->next->data) && ((*stack)->data > (*stack)->next->next->data))
-        ra(stack);
-    if (((*stack)->data > (*stack)->next->data) && ((*stack)->next->data > \
-    (*stack)->next->next->data) && ((*stack)->data > (*stack)->next->next->data))
-    {
-        sa(stack);
-        ra(stack);
-    }
-    return ;
+	if (((*stk)->value < (*stk)->next->value) && ((*stk)->next->value > \
+	(*stk)->next->next->value) && ((*stk)->value > (*stk)->next->next->value))
+		ra(stk);
+	if (((*stk)->value < (*stk)->next->value) && ((*stk)->next->value > \
+	(*stk)->next->next->value) && ((*stk)->value < (*stk)->next->next->value))
+	{
+		ra(stk);
+		sa(stk);
+	}
+	if (((*stk)->value > (*stk)->next->value) && ((*stk)->next->value < \
+	(*stk)->next->next->value) && ((*stk)->value < (*stk)->next->next->value))
+		sa(stk);
+	if (((*stk)->value > (*stk)->next->value) && ((*stk)->next->value < \
+	(*stk)->next->next->value) && ((*stk)->value > (*stk)->next->next->value))
+		ra(stk);
+	if (((*stk)->value > (*stk)->next->value) && ((*stk)->next->value > \
+	(*stk)->next->next->value) && ((*stk)->value > (*stk)->next->next->value))
+	{
+		sa(stk);
+		rra(stk);
+	}
+	return ;
 }
 /*
-void    sort4(t_list **stack)
+void	sort4(t_list **stk)
 {
-    exit;
+	exit;
 }
 
-void    sort5(t_list **stack)
+void	sort5(t_list **stk)
 {
-    exit;
+	exit;
 }
 */

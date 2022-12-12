@@ -35,11 +35,11 @@ void	del_last_node(t_list **stack)
 	while (temp->next->next)
 		temp = temp->next;
 	last_node = temp->next;
-	temp->next = NULL;;
+	temp->next = NULL;
 	free (last_node);
 }
 
-int		check_order(t_list **stack)
+int		check_order(t_list *stack)
 {
 	while (stack->next)
 	{

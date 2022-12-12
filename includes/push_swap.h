@@ -27,6 +27,8 @@ void	del_last_node(t_list **lst);
 
 /*Checkers*/
 int		check_order(t_list *stack);
+void	find_min(t_lst **stack, int *min);
+void	find_max(t_lst **stack, int *max);
 
 /*Sorters*/
 void	sort2(t_list **stack);

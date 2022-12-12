@@ -26,14 +26,14 @@ void	del_first_node(t_list **lst);
 void	del_last_node(t_list **lst);
 
 /*Checkers*/
-int		check_order(t_list **stack);
+int		check_order(t_list *stack);
 
 /*Sorters*/
-void    sort2(t_list **stack);
-void    sort3(t_list **stack);
+void	sort2(t_list **stack);
+void	sort3(t_list **stack);
 /*
-void    sort4(t_list **stack);
-void    sort5(t_list **stack);
+void	sort4(t_list **stack);
+void	sort5(t_list **stack);
 */
 
 /*Operations on stakcs*/

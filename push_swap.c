@@ -63,13 +63,11 @@ int	main(int ac, char **av)
 	{
 		if (ft_lstsize(stack.a) == 2)
 			sort2(&stack.a);
-		if (ft_lstsize(stack.a) == 3)
+		else if (ft_lstsize(stack.a) == 3)
 			sort3(&stack.a);
-		/*
-		if (ft_lstsize(stack.a) == 4)
-			sort4(&stack.a, &stack.b);
-		if (ft_lstsize(stack.a) == 5)
+		else if (ft_lstsize(stack.a) <= 5)
 			sort5(&stack.a, &stack.b);
+		/*
 		if (ft_lstsize(stack.a) >= 6)
 			binary_sort(&stack.a, &stack.b);
 		*/

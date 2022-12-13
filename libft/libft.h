@@ -18,7 +18,6 @@
 # include <string.h>
 # include <stdarg.h>
 # include <stdint.h>
-# include <stdio.h>
 
 typedef struct s_list
 {

@@ -29,7 +29,6 @@ static void	print_stack(t_list **stack)
 
 static void	print_all_stacks(t_list **stack_a, t_list **stack_b)
 {
-			//PRINT
 	write(1, "\n__________\n", 12);
 	write(1, "    STACK A\n", 12);
 	print_stack(stack_a);
@@ -37,7 +36,6 @@ static void	print_all_stacks(t_list **stack_a, t_list **stack_b)
 	print_stack(stack_b);
 	write(1, "\n__________\n\n", 13);
 }
-
 
 static void	parse_numbers(t_list **stack, int ac, char **av)
 {

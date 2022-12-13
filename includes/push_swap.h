@@ -13,6 +13,9 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include <stdio.h>
+# include <limits.h>
+
 # include "../libft/libft.h"
 
 typedef struct s_stack
@@ -27,16 +30,12 @@ void	del_last_node(t_list **lst);
 
 /*Checkers*/
 int		check_order(t_list *stack);
-void	find_min(t_lst **stack, int *min);
-void	find_max(t_lst **stack, int *max);
+void	get_max_min(t_list **a, int *max, int *min);
 
 /*Sorters*/
 void	sort2(t_list **stack);
 void	sort3(t_list **stack);
-/*
-void	sort4(t_list **stack);
-void	sort5(t_list **stack);
-*/
+void	sort5(t_list **a, t_list **b);
 
 /*Operations on stakcs*/
 void	sb(t_list **a);

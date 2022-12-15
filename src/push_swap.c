@@ -29,7 +29,7 @@ static void	print_stack(t_list **stack)
 
 static void	print_all_stacks(t_list **stack_a, t_list **stack_b)
 {
-			//PRINT
+
 	write(1, "\n__________\n", 12);
 	write(1, "    STACK A\n", 12);
 	print_stack(stack_a);
@@ -65,11 +65,9 @@ int	main(int ac, char **av)
 			sort2(&stack.a);
 		if (ft_lstsize(stack.a) == 3)
 			sort3(&stack.a);
-		/*
-		if (ft_lstsize(stack.a) == 4)
-			sort4(&stack.a, &stack.b);
-		if (ft_lstsize(stack.a) == 5)
+		if ((ft_lstsize(stack.a) == 4) || (ft_lstsize(stack.a) == 5))
 			sort5(&stack.a, &stack.b);
+		/*
 		if (ft_lstsize(stack.a) >= 6)
 			binary_sort(&stack.a, &stack.b);
 		*/

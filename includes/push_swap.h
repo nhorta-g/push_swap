@@ -18,10 +18,11 @@
 
 # include "../libft/libft.h"
 
+/*Structs for both stacks*/
 typedef struct s_stack
 {
-	struct s_list	*a;
-	struct s_list	*b;
+	t_list	*a;
+	t_list	*b;
 }	t_stack;
 
 /*List creation and free*/
@@ -36,6 +37,7 @@ void	get_max_min(t_list **a, int *max, int *min);
 void	sort2(t_list **stack);
 void	sort3(t_list **stack);
 void	sort5(t_list **a, t_list **b);
+void	sort_big(t_list **a, t_list **b);
 
 /*Operations on stakcs*/
 void	sb(t_list **a);

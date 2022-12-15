@@ -65,10 +65,8 @@ int	main(int ac, char **av)
 			sort3(&stack.a);
 		else if (ft_lstsize(stack.a) <= 5)
 			sort5(&stack.a, &stack.b);
-		/*
 		if (ft_lstsize(stack.a) >= 6)
-			binary_sort(&stack.a, &stack.b);
-		*/
+			sort_big(&stack.a, &stack.b);
 	}
 	print_all_stacks(&stack.a, &stack.b);
 }

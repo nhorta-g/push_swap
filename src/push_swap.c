@@ -12,7 +12,6 @@
 
 #include "./includes/push_swap.h"
 
-
 static void	print_stack(t_list **stack)
 {
 	t_list	*tmp;
@@ -29,7 +28,6 @@ static void	print_stack(t_list **stack)
 
 static void	print_all_stacks(t_list **stack_a, t_list **stack_b)
 {
-
 	write(1, "\n__________\n", 12);
 	write(1, "    STACK A\n", 12);
 	print_stack(stack_a);
@@ -37,7 +35,6 @@ static void	print_all_stacks(t_list **stack_a, t_list **stack_b)
 	print_stack(stack_b);
 	write(1, "\n__________\n\n", 13);
 }
-
 
 static void	parse_numbers(t_list **stack, int ac, char **av)
 {
@@ -67,10 +64,8 @@ int	main(int ac, char **av)
 			sort3(&stack.a);
 		if ((ft_lstsize(stack.a) == 4) || (ft_lstsize(stack.a) == 5))
 			sort5(&stack.a, &stack.b);
-		/*
 		if (ft_lstsize(stack.a) >= 6)
-			binary_sort(&stack.a, &stack.b);
-		*/
+			sort_big(&stack.a, &stack.b);
 	}
 	print_all_stacks(&stack.a, &stack.b);
 }

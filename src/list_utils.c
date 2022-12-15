@@ -39,7 +39,7 @@ void	del_last_node(t_list **stack)
 	free (last_node);
 }
 
-int		check_order(t_list *stack)
+int	check_order(t_list *stack)
 {
 	while (stack->next)
 	{

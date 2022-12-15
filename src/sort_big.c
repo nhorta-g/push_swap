@@ -1,55 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_4_5_and_max_min.c                             :+:      :+:    :+:   */
+/*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 13:20:31 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/12/15 15:19:03 by nhorta-g         ###   ########.fr       */
+/*   Created: 2022/12/15 15:50:29 by nhorta-g          #+#    #+#             */
+/*   Updated: 2022/12/15 20:04:37 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	get_max_min(t_list **a, int *max, int *min)
+static void	get_index(t_list **a, int min)
 {
+	int		i;
 	t_list	*tmp;
 
+	i = 0;
 	tmp = *a;
-	while (tmp)
+	while (++i <= ft_lstsize(*a))
 	{
-		if (tmp->value > *max)
-			*max = tmp->value;
-		if (tmp->value < *min)
-			*min = tmp->value;
-		tmp = tmp->next;
+		while (tmp && tmp->value != min)
+			tmp = tmp->next;
+		tmp->index = i;
 	}
 }
 
-void	sort5(t_list **a, t_list **b)
+void	sort_big(t_list **a, t_list **b)
 {
+	int	i;
+	int	j;
+	int	len;
 	int	max;
 	int	min;
+	int	max_bits;
+	t_list	*tmp;
 
-	pb(b, a);
 	max = (*a)->value;
 	min = (*a)->value;
 	get_max_min(a, &max, &min);
-	while ((*a)->value != max && (*a)->value != min)
-		ra(a);
-	pb(a, b);
-	while (ft_lstsize(*a) > 3)
+	get_index(a, min);
+	max_bits = -1;
+	while ((max >> ++max_bits) != 0)
+		;
+	i = -1;
+	len = ft_lstsize(*a);
+	while (++i < max_bits)
 	{
-		while ((*a)->value != max && (*a)->value != min)
-			ra(a);
-		pb(a, b);
+		j = 0;
+		while (j++ < len)
+		{
+			tmp = *a;
+			if ((tmp->index >> i & 1) == 1)
+				ra(a);
+			else
+				pb(a, b);
+		}
+		while (ft_lstsize(*b))
+			pa(a, b);
 	}
-	sort3(a);
-	if (ft_lstsize(*b) == 2 && (*b)->value < (*b)->next->value)
-		rb(b);
-	pa(a, b);
-	if ((*a)->value > (*a)->next->value)
-		ra(a);
-	pa(a, b);
 }
+	

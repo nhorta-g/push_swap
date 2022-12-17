@@ -29,15 +29,15 @@ typedef struct s_stack
 void	print_stack(t_list **stack);
 void	print_all_stacks(t_list **stack_a, t_list **stack_b);
 
-/*List creation and free*/
+/*List creation*/
 void	del_first_node(t_list **lst);
 void	del_last_node(t_list **lst);
-void	free_stack(t_list **stack);
-void	exit_prog(t_list **a, t_list **b, int trigger);
 
-/*Checkers*/
+/*Checkers and exit*/
 int		check_order(t_list *stack);
-void	get_max_min(t_list **a, int *max, int *min);
+void	parse_args(t_list **a, char **av);
+void	exit_prog(t_list **a, t_list **b, int trigger);
+void	get_max_min(t_list **a, long long *max, long long *min);
 
 /*Sorters*/
 void	sort2(t_list **stack);

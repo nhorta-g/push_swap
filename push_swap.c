@@ -12,14 +12,52 @@
 
 #include "./includes/push_swap.h"
 
-static void	parse_numbers(t_list **stack, int ac, char **av)
+/*Returns 1 if stack is sorted in ascending order*/
+int	check_order(t_list *stack)
 {
-	int	i;
+	if (stack)
+	{
+		if (stack->next)
+		{
+			while (stack->next)
+			{
+				if ((stack->value) > (stack->next->value))
+					return (0);
+				stack = stack->next;
+			}
+		}
+	}
+	return (1);
+}
 
-	i = 1;
-	ft_lstadd_front(stack, ft_lstnew_int_index(atoi(av[1]), 0));
-	while (++i < ac)
-		ft_lstadd_back(stack, ft_lstnew_int_index(atoi(av[i]), 0));
+/*Frees a stack's memory*/
+static void	free_stack(t_list **stack)
+{
+	t_list	*tmp;
+
+	if (stack)
+	{
+		if (*stack)
+		{
+			while (*stack)
+			{
+				tmp = (*stack);
+				(*stack) = (*stack)->next;
+				free(tmp);
+			}
+		}
+	}
+}
+
+/*Exit the program after freeing the stacks and error
+message in stderror if trigger is 1*/
+void	exit_prog(t_list **a, t_list **b, int trigger)
+{
+	if (trigger == 1)
+		ft_putendl_fd("Error\n", 2);
+	free_stack(a);
+	free_stack(b);
+	exit(trigger);
 }
 
 int	main(int ac, char **av)
@@ -30,8 +68,7 @@ int	main(int ac, char **av)
 		exit(0);
 	stack.a = NULL;
 	stack.b = NULL;
-	parse_numbers(&stack.a, ac, av);
-	print_all_stacks(&stack.a, &stack.b);
+	parse_args(&stack.a, av);
 	if (check_order(stack.a) == 0)
 	{
 		if (ft_lstsize(stack.a) == 2)
@@ -43,6 +80,5 @@ int	main(int ac, char **av)
 		if (ft_lstsize(stack.a) >= 6)
 			sort_big(&stack.a, &stack.b);
 	}
-	print_all_stacks(&stack.a, &stack.b);
 	exit_prog(&stack.a, &stack.b, 0);
 }

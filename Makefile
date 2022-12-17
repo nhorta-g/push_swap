@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+         #
+#    By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:40:52 by nhorta-g          #+#    #+#              #
-#    Updated: 2022/12/16 22:07:21 by nuno             ###   ########.fr        #
+#    Updated: 2022/12/17 16:28:39 by nhorta-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= push_swap.c \
 		src/utils.c \
+		src/parse_check_input.c \
 		src/print.c \
 		src/push.c \
 		src/reverse_rotate.c \
@@ -37,7 +38,6 @@ all: 		$(NAME)
 
 $(NAME):	$(LIBFT) $(OBJS)
 			@$(CC) $(CFLAGS) $(OBJS) -Llibft -lft -o $(NAME)
-			@make clean
 
 $(LIBFT):
 			@make bonus -C libft

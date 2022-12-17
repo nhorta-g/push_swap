@@ -30,18 +30,18 @@ static void	reverse_rotate(t_list **s)
 void	rra(t_list **a)
 {
 	reverse_rotate(a);
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_list **b)
 {
 	reverse_rotate(b);
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_list **a, t_list **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
-	write(1, "rrr\n", 3);
+	write(1, "rrr\n", 4);
 }

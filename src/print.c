@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 19:04:38 by nuno              #+#    #+#             */
-/*   Updated: 2022/12/16 19:06:37 by nuno             ###   ########.fr       */
+/*   Updated: 2022/12/17 16:27:30 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	print_stack(t_list **stack)
 		write(1, "EMPTY STACK", 11);
 	while (tmp)
 	{
-		printf("num: %d ind: %d\n", tmp->value, tmp->index);
+		printf("num: %lld ind: %d\n", tmp->value, tmp->index);
 		tmp = tmp->next;
 	}
 }

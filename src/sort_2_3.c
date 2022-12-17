@@ -20,9 +20,9 @@ void	sort2(t_list **a)
 
 void	sort3(t_list **a)
 {
-	int	fst;
-	int	sec;
-	int	thr;
+	long long	fst;
+	long long	sec;
+	long long	thr;
 
 	fst = (*a)->value;
 	sec = (*a)->next->value;

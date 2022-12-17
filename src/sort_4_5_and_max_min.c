@@ -6,13 +6,13 @@
 /*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 13:20:31 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/12/15 15:19:03 by nhorta-g         ###   ########.fr       */
+/*   Updated: 2022/12/17 16:17:07 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	get_max_min(t_list **a, int *max, int *min)
+void	get_max_min(t_list **a, long long *max, long long *min)
 {
 	t_list	*tmp;
 
@@ -29,8 +29,8 @@ void	get_max_min(t_list **a, int *max, int *min)
 
 void	sort5(t_list **a, t_list **b)
 {
-	int	max;
-	int	min;
+	long long	max;
+	long long	min;
 
 	pb(b, a);
 	max = (*a)->value;

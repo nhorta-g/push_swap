@@ -6,7 +6,7 @@
 /*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 15:08:25 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/12/17 17:18:47 by nhorta-g         ###   ########.fr       */
+/*   Updated: 2022/12/17 18:15:58 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,19 @@ static int	duplicate(t_list *a, long long n)
 	return (0);
 }
 
-static	void first_node(t_list **a, char *av)
+static void	first_node(t_list **a, char *av)
 {
 	while ((*av > 8 && *av < 14) || *av == 32)
 		av++;
 	if (!*av || ((*av == '+' || *av == '-') && !av))
 		exit_prog(a, NULL, 1);
 	ft_lstadd_front(a, ft_lstnew_int_index(atoi_parse(&av), 0));
+}
+
+static void	nasty_stuff(t_list **a, char *s)
+{
+	if (!*s || ((*s == '+' || *s == '-') && !s[1]))
+		exit_prog(a, NULL, 1);
 }
 
 void	parse_args(t_list **a, char **av)
@@ -71,8 +77,7 @@ void	parse_args(t_list **a, char **av)
 		s = av[i];
 		while ((*s > 8 && *s < 14) || *s == 32)
 				s++;
-		if (!*s || ((*s == '+' || *s == '-') && !s[1]))
-			exit_prog(a, NULL, 1);
+		nasty_stuff(a, s);
 		while (*s)
 		{
 			while ((*s > 8 && *s < 14) || *s == 32)

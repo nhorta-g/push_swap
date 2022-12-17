@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstnew_int_index.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 12:48:53 by nuno              #+#    #+#             */
-/*   Updated: 2022/12/16 20:59:26 by nuno             ###   ########.fr       */
+/*   Updated: 2022/12/17 15:25:33 by nhorta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew_int_index(int value, int index)
+t_list	*ft_lstnew_int_index(long long value, int index)
 {
 	t_list	*node;
 

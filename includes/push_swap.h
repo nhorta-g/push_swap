@@ -23,11 +23,17 @@ typedef struct s_stack
 {
 	t_list	*a;
 	t_list	*b;
-}	t_stack;
+}			t_stack;
+
+/*Print stacks*/
+void	print_stack(t_list **stack);
+void	print_all_stacks(t_list **stack_a, t_list **stack_b);
 
 /*List creation and free*/
 void	del_first_node(t_list **lst);
 void	del_last_node(t_list **lst);
+void	free_stack(t_list **stack);
+void	exit_prog(t_list **a, t_list **b, int trigger);
 
 /*Checkers*/
 int		check_order(t_list *stack);

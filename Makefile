@@ -3,15 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:40:52 by nhorta-g          #+#    #+#              #
-#    Updated: 2022/12/15 18:36:37 by nhorta-g         ###   ########.fr        #
+#    Updated: 2022/12/16 22:07:21 by nuno             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS	= push_swap.c \
-		src/list_utils.c \
+		src/utils.c \
+		src/print.c \
 		src/push.c \
 		src/reverse_rotate.c \
 		src/rotate.c \
@@ -26,7 +27,7 @@ NAME	= push_swap
 
 CC		= gcc
 
-CFLAGS	= -Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
 
 RM		= rm -rf
 

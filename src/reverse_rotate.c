@@ -12,17 +12,17 @@
 
 #include "../includes/push_swap.h"
 
-static void	reverse_rotate(t_list **stack)
+static void	reverse_rotate(t_list **s)
 {
 	t_list	*tmp;
 
-	if (stack && *stack && ft_lstsize(*stack) > 1)
+	if (s && *s && ft_lstsize(*s) > 1)
 	{
-		tmp = (*stack);
+		tmp = (*s);
 		while (tmp->next)
 			tmp = tmp->next;
-		ft_lstadd_front(stack, ft_lstnewint(tmp->value));
-		del_last_node(stack);
+		ft_lstadd_front(s, ft_lstnew_int_index((*s)->value, (*s)->index));
+		del_last_node(s);
 	}
 	return ;
 }

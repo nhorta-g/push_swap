@@ -12,12 +12,12 @@
 
 #include "../includes/push_swap.h"
 
-static void	rotate(t_list **stack)
+static void	rotate(t_list **s)
 {
-	if (stack && *stack && ft_lstsize(*stack) > 1)
+	if (s && *s && ft_lstsize(*s) > 1)
 	{
-		ft_lstadd_back(stack, ft_lstnewint((*stack)->value));
-		del_first_node(stack);
+		ft_lstadd_back(s, ft_lstnew_int_index((*s)->value, (*s)->index));
+		del_first_node(s);
 	}
 	return ;
 }

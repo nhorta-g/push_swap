@@ -3,47 +3,94 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:50:29 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/12/15 20:04:37 by nhorta-g         ###   ########.fr       */
+/*   Updated: 2022/12/16 21:35:48 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static void	get_index(t_list **a, int min)
+/*puts the content of the stack in a array
+used for index*/
+static int	*stack_to_array(t_list *a)
 {
+	int		*arr;
 	int		i;
 	t_list	*tmp;
+	int		size;
 
-	i = 0;
-	tmp = *a;
-	while (++i <= ft_lstsize(*a))
+	size = ft_lstsize(a);
+	arr = malloc(sizeof(int) * size);
+	if (!arr)
+		return (NULL);
+	size = ft_lstsize(a);
+	tmp = a;
+	i = -1;
+	while (tmp && ++i < size)
 	{
-		while (tmp && tmp->value != min)
-			tmp = tmp->next;
-		tmp->index = i;
+		arr[i] = tmp->value;
+		tmp = tmp->next;
+	}
+	return (arr);
+}
+
+/*ordenates the array using the selection sort algorithm and returns
+the sorted array*/
+static int	*selection_sort_array(int *array, int size)
+{
+	int	tmp;
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < size)
+	{
+		j = i;
+		while (++j < size)
+		{
+			if (array[i] > array[j])
+			{
+				tmp = array[i];
+				array[i] = array[j];
+				array[j] = tmp;
+			}
+		}
+	}
+	return (array);
+}
+
+/*Passes index to stack from the sorted array created above*/
+static void	index_stack(t_list **a)
+{
+	int		*arr;
+	int		i;
+	t_list	*tmp;
+	int		size;
+
+	size = ft_lstsize(*a);
+	arr = selection_sort_array(stack_to_array(*a), size);
+	tmp = *a;
+	while (tmp)
+	{
+		i = -1;
+		while (++i < size)
+		{
+			if (arr[i] == tmp->value)
+				tmp->index = i;
+		}
+		tmp = tmp->next;
 	}
 }
 
-void	sort_big(t_list **a, t_list **b)
+static void	radix(t_list **a, t_list **b, int max_bits)
 {
 	int	i;
 	int	j;
 	int	len;
-	int	max;
-	int	min;
-	int	max_bits;
 	t_list	*tmp;
 
-	max = (*a)->value;
-	min = (*a)->value;
-	get_max_min(a, &max, &min);
-	get_index(a, min);
-	max_bits = -1;
-	while ((max >> ++max_bits) != 0)
-		;
 	i = -1;
 	len = ft_lstsize(*a);
 	while (++i < max_bits)
@@ -61,4 +108,19 @@ void	sort_big(t_list **a, t_list **b)
 			pa(a, b);
 	}
 }
-	
+
+void	sort_big(t_list **a, t_list **b)
+{
+	int	max;
+	int	min;
+	int	max_bits;
+
+	index_stack(a);
+	max = (*a)->value;
+	min = (*a)->value;
+	get_max_min(a, &max, &min);
+	max_bits = -1;
+	while ((max >> ++max_bits) != 0)
+		;
+	radix(a, b, max_bits);
+}

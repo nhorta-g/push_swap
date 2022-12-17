@@ -12,7 +12,17 @@
 
 #include "./includes/push_swap.h"
 
-static void	print_stack(t_list **stack)
+static void	parse_numbers(t_list **stack, int ac, char **av)
+{
+	int	i;
+
+	i = 1;
+	ft_lstadd_front(stack, ft_lstnewint(atoi(av[1])));
+	while (++i < ac)
+		ft_lstadd_back(stack, ft_lstnewint(atoi(av[i])));
+}
+
+void	print_stack(t_list **stack)
 {
 	t_list	*tmp;
 
@@ -26,24 +36,14 @@ static void	print_stack(t_list **stack)
 	}
 }
 
-static void	print_all_stacks(t_list **stack_a, t_list **stack_b)
+void	print_all_stacks(t_list **a, t_list **b)
 {
 	write(1, "\n__________\n", 12);
 	write(1, "    STACK A\n", 12);
-	print_stack(stack_a);
+	print_stack(a);
 	write(1, "\n   STACK B\n", 12);
-	print_stack(stack_b);
+	print_stack(b);
 	write(1, "\n__________\n\n", 13);
-}
-
-static void	parse_numbers(t_list **stack, int ac, char **av)
-{
-	int	i;
-
-	i = 1;
-	ft_lstadd_front(stack, ft_lstnewint(atoi(av[1])));
-	while (++i < ac)
-		ft_lstadd_back(stack, ft_lstnewint(atoi(av[i])));
 }
 
 int	main(int ac, char **av)

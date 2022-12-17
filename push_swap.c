@@ -12,47 +12,22 @@
 
 #include "./includes/push_swap.h"
 
-
-static void	print_stack(t_list **stack)
-{
-	t_list	*tmp;
-
-	tmp = *stack;
-	if (tmp == NULL)
-		write(1, "EMPTY STACK", 11);
-	while (tmp)
-	{
-		printf("num: %d\n", tmp->value);
-		tmp = tmp->next;
-	}
-}
-
-static void	print_all_stacks(t_list **stack_a, t_list **stack_b)
-{
-	write(1, "\n__________\n", 12);
-	write(1, "    STACK A\n", 12);
-	print_stack(stack_a);
-	write(1, "\n   STACK B\n", 12);
-	print_stack(stack_b);
-	write(1, "\n__________\n\n", 13);
-}
-
 static void	parse_numbers(t_list **stack, int ac, char **av)
 {
 	int	i;
 
 	i = 1;
-	ft_lstadd_front(stack, ft_lstnewint(atoi(av[1])));
+	ft_lstadd_front(stack, ft_lstnew_int_index(atoi(av[1]), 0));
 	while (++i < ac)
-		ft_lstadd_back(stack, ft_lstnewint(atoi(av[i])));
+		ft_lstadd_back(stack, ft_lstnew_int_index(atoi(av[i]), 0));
 }
 
 int	main(int ac, char **av)
 {
 	t_stack	stack;
 
-	if (ac < 2)
-		printf("Error\nWrong number of arguments\n");
+	if (ac == 1)
+		exit(0);
 	stack.a = NULL;
 	stack.b = NULL;
 	parse_numbers(&stack.a, ac, av);
@@ -69,4 +44,5 @@ int	main(int ac, char **av)
 			sort_big(&stack.a, &stack.b);
 	}
 	print_all_stacks(&stack.a, &stack.b);
+	exit_prog(&stack.a, &stack.b, 0);
 }

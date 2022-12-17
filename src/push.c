@@ -16,7 +16,7 @@ void	pa(t_list **a, t_list **b)
 {
 	if (b && *b)
 	{
-		ft_lstadd_front(a, ft_lstnewint((*b)->value));
+		ft_lstadd_front(a, ft_lstnew_int_index((*b)->value, (*b)->index));
 		del_first_node(b);
 		write(1, "pa\n", 3);
 	}
@@ -27,7 +27,7 @@ void	pb(t_list **a, t_list **b)
 {
 	if (a && *a)
 	{
-		ft_lstadd_front(b, ft_lstnewint((*a)->value));
+		ft_lstadd_front(b, ft_lstnew_int_index((*a)->value, (*a)->index));
 		del_first_node(a);
 		write(1, "pb\n", 3);
 	}

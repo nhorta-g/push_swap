@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nhorta-g <nhorta-g@student.42.fr>          +#+  +:+       +#+         #
+#    By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/04 11:40:52 by nhorta-g          #+#    #+#              #
-#    Updated: 2022/12/17 16:28:39 by nhorta-g         ###   ########.fr        #
+#    Updated: 2022/12/19 19:04:57 by nuno             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS	= push_swap.c \
 		src/reverse_rotate.c \
 		src/rotate.c \
 		src/sort_2_3.c \
-		src/sort_4_5_and_max_min.c \
+		src/sort_4_5.c \
 		src/sort_big.c \
 		src/swap.c
 

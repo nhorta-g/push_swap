@@ -30,34 +30,28 @@ int	check_order(t_list *stack)
 	return (1);
 }
 
-/*Frees a stack's memory*/
-static void	free_stack(t_list **stack)
+static void	index_stack(t_list **a)
 {
 	t_list	*tmp;
+	int		min;
+	int		i;
 
-	if (stack)
+	i = 0;
+	while (++i <= ft_lstsize(*a))
 	{
-		if (*stack)
+		tmp = *a;
+		min = INT_MAX;
+		while (tmp)
 		{
-			while (*stack)
-			{
-				tmp = (*stack);
-				(*stack) = (*stack)->next;
-				free(tmp);
-			}
+			if (min > tmp->value && tmp->index == 0)
+				min = tmp->value;
+			tmp = tmp->next;
 		}
+		tmp = *a;
+		while (tmp && tmp->value != min)
+			tmp = tmp->next;
+		tmp->index = i;
 	}
-}
-
-/*Exit the program after freeing the stacks and error
-message in stderror if trigger is 1*/
-void	exit_prog(t_list **a, t_list **b, int trigger)
-{
-	if (trigger == 1)
-		ft_putendl_fd("Error\n", 2);
-	free_stack(a);
-	free_stack(b);
-	exit(trigger);
 }
 
 int	main(int ac, char **av)
@@ -69,6 +63,7 @@ int	main(int ac, char **av)
 	stack.a = NULL;
 	stack.b = NULL;
 	parse_args(&stack.a, av);
+	index_stack(&stack.a);
 	if (check_order(stack.a) == 0)
 	{
 		if (ft_lstsize(stack.a) == 2)

@@ -14,7 +14,7 @@
 
 void	sort2(t_list **a)
 {
-	if ((*a)->value > (*a)->next->value)
+	if ((*a)->index > (*a)->next->index)
 		sa(a);
 }
 
@@ -24,9 +24,9 @@ void	sort3(t_list **a)
 	long long	sec;
 	long long	thr;
 
-	fst = (*a)->value;
-	sec = (*a)->next->value;
-	thr = (*a)->next->next->value;
+	fst = (*a)->index;
+	sec = (*a)->next->index;
+	thr = (*a)->next->next->index;
 	if ((fst < sec) && (sec > thr) && (fst > thr))
 		ra(a);
 	if ((fst < sec) && (sec > thr) && (fst < thr))

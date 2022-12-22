@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 15:50:29 by nhorta-g          #+#    #+#             */
-/*   Updated: 2022/12/19 23:49:56 by nuno             ###   ########.fr       */
+/*   Updated: 2022/12/22 09:12:44 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ static void	radix(t_list **a, t_list **b, int max_bits)
 
 	i = -1;
 	len = ft_lstsize(*a);
-	printf("len: %d \n", len);
 	while (++i < max_bits)
 	{
 		j = 0;
@@ -50,7 +49,5 @@ void	sort_big(t_list **a, t_list **b)
 	max_bits = -1;
 	while ((max >> ++max_bits) != 0)
 		;
-	printf("max: %lld\n", max);
-	printf("maxbits: %d\n", max_bits);
 	radix(a, b, max_bits);
 }
